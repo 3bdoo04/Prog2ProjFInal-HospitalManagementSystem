@@ -209,10 +209,10 @@ public:
     struct PatientRecord {
         string name;
         string address;
-        int age;
-        char gender;
+        int age = 0;
+        char gender = '\0';
         string diseaseDescription;
-        int specialistRoomNumber;
+        int specialistRoomNumber = 0;
         string service;
     };
 
@@ -276,17 +276,17 @@ public:
     void displayMainMenu() {
         cout << "\t\t\t\t*************Hospital Management System************" << endl << endl;
         cout << "1.  Add New Patient Record" << endl;
-        cout << "2.  Search/Edit Patient Record" << endl;
+        cout << "2.  Edit Patient Record" << endl;
         cout << "3.  Display the List Patient Records" << endl;
         cout << "4.  Delete a Patient Record" << endl;
-        cout << "5.  Add/Edit Financial Records of patients" << endl;
+        cout << "5.  Edit Financial Records of patients" << endl;
         cout << "6.  Display Financial Records of patients" << endl;
         cout << "7.  Add Treatment details for patient" << endl;
         cout << "8.  Display Treatment details of a patient" << endl;
         cout << "9.  Edit Treatment details of a patient" << endl;
-        cout << "10. Delete Treatment details of a patient" << endl;
+		cout << "10. Display Medicines for a patient" << endl; //changed from "Edit Treatment details of a patient"
         cout << "11. Add Medicines for a patient" << endl;
-        cout << "12. Display Medicines for a patient" << endl;
+		cout << "12. Delete Treatment details of a patien" << endl; //changed from "Delete Medicines for a patient"
         cout << "13. Delete Medicines for a patient" << endl;
         cout << "14. Save to File" << endl;
         cout << "15. Exit" << endl;
@@ -489,7 +489,7 @@ int main() {
         }
         case 10: {
             int recordNumber = menu.getRecordNumberInput();
-            treatmentManager.deleteTreatment(recordNumber);
+            medicineManager.displayMedicine(recordNumber);
             break;
         }
         case 11: {
@@ -503,7 +503,7 @@ int main() {
         }
         case 12: {
             int recordNumber = menu.getRecordNumberInput();
-            medicineManager.displayMedicine(recordNumber);
+            treatmentManager.deleteTreatment(recordNumber);
             break;
         }
         case 13: {
